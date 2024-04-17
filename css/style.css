@@ -1,4 +1,15 @@
+/* 기본 영역 height 값 지정 */
+.fp-overflow{height:100%}
+.container{height:100%;}
+
 .container{position:relative;}
 
-/* #section1{background:red}
-#section2{background:#dcdcdc} */
+/* section bg */
+#section1{background:#FAC15A}
+
+
+/* style */
+.intro_title{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); color:#fff; text-align:center;}
+.intro_title h1{font-size:40px;}
+.intro_title h2{font-size:80px;}
+.intro_name{position:absolute; right:50px; bottom:50px; font-size:20px; color:#fff}
