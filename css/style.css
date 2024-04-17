@@ -2,14 +2,21 @@
 .fp-overflow{height:100%}
 .container{height:100%;}
 
-.container{position:relative;}
+.container{position:relative; box-sizing:border-box; padding:50px;}
 
 /* section bg */
 #section1{background:#FAC15A}
+#section2{background:#F1F1F1}
 
 
 /* style */
 .intro_title{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); color:#fff; text-align:center;}
 .intro_title h1{font-size:40px;}
-.intro_title h2{font-size:80px;}
+.intro_title h2{font-size:80px; line-height:1; margin-top:20px}
+.intro_title .bar{animation: blink 1s infinite; position:relative; top:-7px}
 .intro_name{position:absolute; right:50px; bottom:50px; font-size:20px; color:#fff}
+
+
+/* page tit */
+.page_tit{font-size:0;}
+.page_tit span{font-size:40px;}
