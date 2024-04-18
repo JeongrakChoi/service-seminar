@@ -2,11 +2,14 @@
 .fp-overflow{height:100%}
 .container{height:100%;}
 
-.container{position:relative; box-sizing:border-box; padding:50px;}
+.container{position:relative; box-sizing:border-box; padding:50px; overflow:hidden;}
 
 /* section bg */
 #section1{background:#FAC15A}
-#section2{background:#F1F1F1}
+#section2{background:#212121}
+#section3{background:#fff}
+#section4{background:#36C2BA}
+#section5{background:#f1f1f1}
 
 
 /* style */
@@ -20,3 +23,88 @@
 /* page tit */
 .page_tit{font-size:0;}
 .page_tit span{font-size:40px;}
+#section2 .page_tit{color:#fff}
+#section4 .page_tit{position:absolute; left:50px; top:50px}
+#section4 .page_tit{color:#fff}
+
+/* content box */
+.content_box{position:relative; margin-top:20px}
+
+.ani_box{position:absolute;}
+.ani_box img{max-width:100%;}
+
+.ani_box.one{width:500px; left:0; top:200px;}
+.ani_box.two{width:500px; left:0; top:500px;}
+.ani_box.three{width:1200px; left:350px; top:50px;}
+
+.shootingStar {position:absolute;top:0;left:0;width:100%;height:100%; overflow:hidden;}
+.shootingStar .star {position:absolute;background-size:cover;opacity:0;filter:alpha(opacity=0); animation:5s flying linear infinite;}
+.shootingStar > .star:nth-child(1) {top:7%;left:14%;width:96px;height:70px;background:url('../images/star1.png') no-repeat center top;animation-delay:0.2s;}
+.shootingStar > .star:nth-child(2) {top:22%;left:17%;width:122px;height:88px;background:url('../images/star2.png') no-repeat center top;animation-delay:2.5s;}
+.shootingStar > .star:nth-child(3) {bottom:7%;left:4%;width:100px;height:70px;background:url('../images/star3.png') no-repeat center top;animation-delay:3.8s;}
+.shootingStar > .star:nth-child(4) {bottom:13%;left:65%;width:136px;height:100px;background:url('../images/star4.png') no-repeat center top;animation-delay:4.5s;}
+.shootingStar > .star:nth-child(5) {bottom:4%;right:14%;width:76px;height:50px;background:url('../images/star5.png') no-repeat center top;animation-delay:2s;}
+.shootingStar > .star:nth-child(6) {bottom:31%;right:2%;width:116px;height:70px;background:url('../images/star6.png') no-repeat center top;animation-delay:5.5s;}
+
+/* slide */
+.slide_box{height:100%; position:relative; display:flex; align-items:center; justify-content:center;}
+.fp-arrow.fp-prev{border-color:transparent #FAC15A transparent transparent; left:50px;}
+.fp-arrow.fp-next{border-color:transparent transparent transparent #FAC15A; right:50px;}
+.slide_place{position:relative; min-width:600px;}
+.slide_tit{font-size:50px; font-weight:bold;}
+.slide_txt{line-height:1.5; font-size:25px; margin-top:20px}
+
+.video{position:relative; height:0; width:70%; padding-top:39.25%}
+.video iframe{width:100%; height:100%; position:absolute; left:0; top:0}
+
+/* exam */
+.exam{position:relative; margin-top:40px}
+.exam dt{font-size:20px; font-weight:bold}
+.exam dd{margin-top:20px; position:relative}
+.exam dd a{position:relative; display:inline-block}
+.exam dd img{max-width:500px}
+
+.exam + .exam{margin-top:50px}
+.exam .click{position:absolute; right:-30px; bottom:-30px; width:80px; animation:flying2 2s ease-in-out infinite;}
+
+/* exam ani */
+.ani_wrap{position:absolute; left:0; top:0; width:100%; height:100%}
+.ani_wrap .taja_bg{position:absolute; width:100%; height:100%; left:0; top:0; object-fit:cover;}
+
+.ani_intro{position:absolute; left:0; top:0; width:100%; height:100%; z-index:1; background:#fff}
+.ani_tit{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:auto; font-size:55px; font-weight:bold; mix-blend-mode: difference; color:#fff; z-index:2; animation:tit_fade_out; animation-duration:1s; animation-delay:4s; animation-fill-mode:forwards;}
+
+.ani_progress{position:absolute; left:0; top:0; width:0; height:100%; background:#FAC15A; animation:progress_start 5s ease-in-out forwards}
+
+.key{box-shadow:5px 5px 5px #ddd; opacity:0; position:absolute;}
+.key1{left:10%; top:15%; animation:key 1.5s ease-in; animation-delay:5s; animation-fill-mode:forwards;}
+.key2{left:50%; top:55%; animation:key 1.5s ease-in; animation-delay:5.1s; animation-fill-mode:forwards;}
+.key3{left:21%; top:85%; animation:key 1.5s ease-in; animation-delay:5.2s; animation-fill-mode:forwards;}
+.key4{left: 69%;top: 72%;animation:key 1.5s ease-in;animation-delay:5.3s;animation-fill-mode:forwards;}
+.key5{left:25%; top:25%; animation:key 1.5s ease-in; animation-delay:5.4s; animation-fill-mode:forwards;}
+.key6{left:56%; top:20%; animation:key 1.5s ease-in; animation-delay:5.5s; animation-fill-mode:forwards;}
+.key7{left: 43%;top: 68%;animation:key 1.5s ease-in;animation-delay:5.6s;animation-fill-mode:forwards;}
+.key8{left: 70%;top: 37%;animation:key 1.5s ease-in;animation-delay:5.7s;animation-fill-mode:forwards;}
+.key9{left: 9%;top: 54%;animation:key 1.5s ease-in;animation-delay:5.8s;animation-fill-mode:forwards;}
+.key10{left:88%; top:9%; animation:key 1.5s ease-in; animation-delay:5.9s; animation-fill-mode:forwards;}
+
+
+@keyframes progress_start {
+	0% {width:0}
+  30% {width:20%}
+	50%{ width:50%}
+  80%{ width:75%}
+  100%{ width:100%}
+}
+
+@keyframes tit_fade_out {
+	0% {opacity:1}
+  100%{opacity:0}
+}
+
+@keyframes key {
+  25%{transform:scale(1.2); opacity:1}
+  50%{transform:scale(1); opacity:0.8;}
+  75%{transform:scale(1.2); opacity:1}
+  100%{transform:scale(1); opacity:0}
+}
