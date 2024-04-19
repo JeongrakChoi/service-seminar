@@ -9,6 +9,7 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script src="js/shuffle.js"></script>
   <script src="js/fullpage.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
   <script src="js/ui.js"></script>
 
   <link rel="stylesheet" href="css/fullpage.css">
@@ -65,24 +66,36 @@
         <div class="ani_box two anim-fade-in-up anim-delay-2000">
           <img src="images/ani02.gif" alt="">
         </div>
-
+        
         <div class="ani_box three anim-fade-in-up anim-delay-2500">
           <img src="images/ani03.gif" alt="">
+        </div>
+      
+      </div>
+    </div>
+    <!-- //section -->
+
+    <!-- section -->
+    <div class="section" id="section4">
+      <div class="container">
+        <div class="vd">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/FAaWMY3gLbI?si=wCZ_eoMlpI3aurcZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="anim-fade-in-up anim-delay-1000"></iframe>
         </div>
       </div>
     </div>
     <!-- //section -->
 
      <!-- section -->
-     <div class="section" id="section4">
+     <div class="section" id="section5">
       <div class="container">
-        <h2 class="page_tit section4_tit">- 어떻게 만드나요?<span></span></h2>
+        <h2 class="page_tit section5_tit">- 어떻게 만드나요?<span></span></h2>
 
         <div class="slide" id="slide1">
           <div class="slide_box">
             <div class="slide_place">
               <div class="slide_tit">기획</div>
               <div class="slide_txt">
+                - 목표 및 기능 설정 <br/>
                 - 벤치마킹 <br/>
                 - 화면 시나리오 및 설계서 작성
               </div>
@@ -95,7 +108,7 @@
             <div class="slide_place">
               <div class="slide_tit">디자인</div>
               <div class="slide_txt">
-                - 디자인 <br/>
+                - 디자인 구성 <br/>
                 - GIF, Lottie, Adobe Animate.. 등
               </div>
             </div>
@@ -138,9 +151,9 @@
     <!-- //section -->
 
     <!-- section -->
-    <div class="section" id="section5">
+    <div class="section" id="section6">
       <div class="container">
-        <h2 class="page_tit section5_tit">- 한컴 타자에 적용해본다면?<span></span></h2>
+        <h2 class="page_tit section6_tit">- 한컴 타자에 적용해본다면?<span></span></h2>
 
         <dl class="exam">
           <dt>- 타자 연습 실행 화면(현재)</dt>
@@ -164,6 +177,33 @@
       </div>
     </div>
     <!-- //section -->
+
+    <!-- section -->
+    <div class="section" id="section7">
+      <div class="container">
+        <h2 class="page_tit section7_tit">감사합니다<span></span></h2>
+
+        <canvas id="myCanvas" width="800" height="600"></canvas>
+      </div>
+    </div>
+    <!-- //section -->
+
+    <script>
+      var canvas = document.getElementById('myCanvas');
+      var myConfetti = confetti.create(canvas, {
+          resize: true,
+          useWorker: true
+      });
+
+      function launchConfetti() {
+          myConfetti({
+              particleCount: 100,
+              spread: 90,
+              origin: { y: 0.6 }
+          });
+      }
+      setInterval(launchConfetti, 2000);
+    </script>
 
   </div>
 
