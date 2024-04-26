@@ -1,0 +1,609 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" content="public, must-revalidate, max-age=14400">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+	<meta name="format-detection" content="telephone=no">
+    <title>Clean It ZERO 샘플 이벤트 | BANILA CO</title>
+	
+	<!-- SEO -->
+    <link rel="canonical" href="https://www.cleanitzero.co.kr/">
+    <link rel="alternate" hreflang="x-default" href="http://banilaco.com/"> 
+    <meta name="robots" content="index, follow">
+    <meta itemprop="url" content="https://www.cleanitzero.co.kr/m/index.html">
+    <meta itemprop="name" content="BANILA CO">
+    <meta itemprop="description" content="지울수록 피부가 좋아지는 기분!">
+	
+	<meta property="fb:app_id" content="178865892908972" />
+    <meta property="og:site_name" content="BANILA CO">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.cleanitzero.co.kr/m/index.html">
+    <meta property="og:title" content="[바닐라코 태연과 함께 Clean it zero]">
+    <meta property="og:description" content="지울수록 피부가 좋아지는 기분 ">
+    <meta property="og:image" content="https://cleanitzero.co.kr/assets/images/facebookkakaoShare.jpg">
+	
+	<!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="http://banilaco.com/kr/common/images/main/favicon.ico">
+    <meta name="theme-color" content="#fea0c9">
+	
+    <!-- Css -->
+    <link rel="stylesheet" href="../assets/common.css">
+    <link rel="stylesheet" href="../assets/join-m.css">
+	<link rel="stylesheet" href="../assets/jquery.bxslider.css">
+    <link rel="stylesheet" href="../assets/m_style.css">
+	
+	<!-- Js -->
+	<script type="text/javascript" src="../scripts/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="../scripts/jquery.fullPage.js"></script>
+	<script type="text/javascript" src="../scripts/scrolloverflow.min.js"></script>
+	<script type="text/javascript" src="../scripts/jquery.bxslider.min.js"></script>
+	<script type="text/javascript" src="../scripts/json2.js"></script>
+	<script type="text/javascript" src="../scripts/ib.common.js"></script>
+	<script type="text/javascript" src="../scripts/m_ui.js"></script>
+	<script type="text/javascript" src="https://101.livere.co.kr/B/passport/livere8_passport.js" charset="utf8"></script>
+	<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+	
+	<script type="text/javascript">
+	//<!--
+	$.context = location.protocol + '//' + location.host;
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-104247300-1', 'auto');
+	  ga('send', 'pageview');
+	//-->
+	</script>
+</head>
+<body>
+
+	<!-- wrap -->
+	<div class="wrap">
+	
+		<script type="text/javascript">
+		
+			var videoSrc = '';
+			var report02Tag = '';
+			
+			//샘플 시작
+			function sampleStart(){
+				if( videoSrc == ''){
+					videoSrc = $("#start").attr('src');
+					report02Tag = '<video id="report02" class="full-video" src="" playsinline="" webkit-playsinline=""></video>';
+					$(".wrap").addClass("position");
+				}
+				$("html").addClass("fixed");
+				$(".fixed-container, .user-scenes").fadeIn();
+				$(".fixed_close").show();
+				$("#start").get(0).play();
+				
+				$("#report02").attr("src","../assets/video/m/report02.mp4").load()
+				$("#end").attr("src","../assets/video/m/end.mp4").load();
+				$.fn.fullpage.setAllowScrolling(false)
+			}
+	
+			//샘플 종료
+			function sampleEnd(){
+				$("html").removeClass("fixed");
+				$(".fixed-container, .user-scenes").fadeOut();
+				$(".fixed_close").hide();
+				$(".wrap").removeClass("position");
+				$.fn.fullpage.setAllowScrolling(true);
+				$("#report02").remove();
+
+				resetAction();
+			}
+	
+			//샘플 신청
+			function checking(){
+				$("#report").attr("src","../assets/video/report01.mp4").css('opacity','1').get(0).play();
+				$("#start").animate({'opacity':'0'},500).attr("src",'');
+				$(".user-scene.start").fadeOut();
+				
+				$("#report").bind("ended", function() {
+					$(".user-scene.checking").fadeIn();
+				});
+				
+				setTimeout(function(){
+					if ( $(".user-scene.checking").css("display") == "block" ){
+						report02();
+					}
+				},15000);
+			}
+			
+			function report(){
+				if ( $(".custom_check").is(":checked")){
+					$(".user-scene.checking").hide();
+					$(".user-scene.report").show();
+					$("#report02").get(0).pause();
+					$(".user-scenes").addClass("back_bg");
+				} else{
+					alert("개인정보 수집 동의하여 주십시오.")	
+				}
+			}
+			
+			function report02(){
+				$("#report").animate({'opacity':'0'},500).attr("src","");
+				$("#report02").css('opacity','1').get(0).play();
+			}
+			
+			function output(){
+				$(".user-scene").fadeOut();
+				$(".user-scene.output").fadeIn();
+			}
+	
+			function modify(){
+				$("#modifyName").val(name);
+				$("#modifyCellPhone1").val(cellPhone1);
+				$("#modifyCellPhone2").val(cellPhone2);
+				$("#modifyCellPhone3").val(cellPhone3);
+				$.view.modifydrawStoreList(locationId, storeId);
+				
+				$(".user-scene").fadeOut();
+				$(".user-scene.modify").fadeIn();
+			}
+	
+			function end(){
+				$("#report").animate({'opacity':'0'},500).attr("src",'');
+				$("#report02").animate({'opacity':'0'},500).attr("src","").remove();
+				$("#end").attr("src","../assets/video/m/end.mp4").css('opacity','1').get(0).play();
+				$(".user-scene").fadeOut();
+				
+				$("#end").bind("ended", function() {
+					$(".user-scene.end").fadeIn();
+				});
+			}
+			
+			function check_open(){
+				$(".check_pop").show();	
+			}
+			
+			function check_close(){
+				$(".check_pop").hide();
+			}
+			
+			function resetAction(){
+				//개인정보 수집 및 취급 위탁 동의 초기화
+				$('#sampReqApr1').prop('checked',false)
+				
+				//등록 폼의 이름,전화번호2,3 초기화
+				$('.report input').val('')
+
+				$(".report #cellPhone1 option:eq(0)").prop("selected", true);
+				$(".report #locationId option:eq(0)").prop("selected", true);
+				$(".report #storeIdList").html('<option value="">매장 선택</option>');
+				
+				//수정 폼의 이름,전화번호2,3 초기화
+				$('.modify input').val('')
+				
+				$(".modify #modifyCellPhone1 option:eq(0)").prop("selected", true);
+				$(".modify #modifyLocationId option:eq(0)").prop("selected", true);
+				$(".modify #modifyStoreIdList").html('<option value="">매장 선택</option>');
+				
+				//$("#modifyLocationId").change();
+				
+				//video tag 스타일 제거
+				$('.fixed-video video').removeAttr( 'style' );
+				$('.fixed-video video').attr('src','');
+				//start video tag src에 content경로 set
+				$("#start").attr('src',videoSrc);
+				
+				//end function에서 report02를 삭제하기때문에 report02 tag가 있는지 확인후 없으면 sampleStart에서 저장해 놓은 report02 tag를 추가한다.
+				if( !$('.fixed-video #report02') ){
+					$('.fixed-video #report').after( report02Tag );
+				}else{
+					$('.fixed-video #report02').remove();
+					$('.fixed-video #report').after( report02Tag );
+				}
+				
+				$(".user-scene").hide();
+				$(".user-scene.start").show();
+				$(".check_txt_box").hide();
+				check_close();
+				$(".user-scenes").removeClass("back_bg");
+			}
+			
+			function shareSns(type){
+				var curUrl = "https://www.cleanitzero.co.kr/index.html";
+				// remove hashtag
+		        if (curUrl && curUrl.indexOf('#') > -1) {
+		            curUrl = curUrl.substring(0, curUrl.indexOf('#'));
+		        }
+				
+		        curUrl = encodeURIComponent(curUrl);
+		        
+		     	// kakao
+		        if (type == 'kakao') {
+		            var href = 'https://story.kakao.com/share?url=' + curUrl;
+		            $.ib.popup(href, 'kakao', 600, 600, 'yes','no');
+		            // facebook
+		        } else {
+		            var href = 'https://www.facebook.com/sharer/sharer.php?u=' + curUrl;
+		            $.ib.popup(href, 'facebook', 600, 600, 'yes','no');
+		        }
+			}
+			
+			// 카카오 javascript key
+			Kakao.init('e589e36bcf5b51e343026bee3fbb739c');
+			
+			function shareKakaotalk() {
+				var data = {
+					btnText: '50ml 대용량 받기',
+					link: 'https://cleanitzero.co.kr',
+					picture: 'https://cleanitzero.co.kr/assets/images/kakaoShare.jpg',
+					description: "[바닐라코 태연과 함께 Clean it zero]\r\n\r\n" +
+					"귀찮은 클렌징, 언제까지 미룰래?\r\n" + 
+					"#귀찮음 제로 #클린잇제로\r\n\r\n" + 
+					"지울수록 피부가 좋아지는 기분 올인원 클렌져\r\n지금 바로 클린 잇 제로 해봐!"
+				};
+			    kakaotalkShare(data, function () {}, function () {
+			        alert('모바일에서 공유가 가능합니다.');
+			    });
+			}
+			
+			function kakaotalkShare(data, callback, failCallback) {
+			    Kakao.Link.sendTalkLink({
+			        label: data.description,
+			        webButton: {
+			            text: data.btnText,
+			            url: data.link
+			        },
+			        image: {
+			            src: data.picture,
+			            width:960,
+			            height:1080
+			        },
+			        fail: function () {
+			            alert('카카오톡 공유는 모바일로만 가능합니다.');
+			        }
+			    });
+			    setTimeout(function () {
+			        if (typeof callback == "function") {
+			            callback();
+			        }
+			    }, 5000);
+			}
+			
+		</script>
+		
+		<div class="header">
+			<h1><a href="javascript:slide01();"><img src="../assets/images/main-m/logo.png" alt=""></a></h1>
+			<a href="javascript:menuOpen();" class="menu_btn"><img src="../assets/images/main-m/menu_btn.png" alt=""></a>
+		</div>
+		
+		<div class="menu">
+			<a href="javascript:menuClose();" class="menu_close"><img src="../assets/images/main-m/menu_close.png" alt=""></a>
+			
+			<ul class="menu_list">
+				<li><a href="javascript:slide02();"><img src="../assets/images/main-m/menubtn01.png" alt="Sample"></a></li>
+				<li><a href="javascript:slide03();"><img src="../assets/images/main-m/menubtn03.png" alt="Product"></a></li>
+				<li><a href="javascript:slide04();"><img src="../assets/images/main-m/menubtn02.png" alt="Video Evnet"></a></li>
+			</ul>
+			
+			<ul class="util">
+				<li><a onClick="prompt('아래 주소창의 주소를 복사해주세요.', 'http://cleanitzero.co.kr'); return false;"><img src="../assets/images/main-m/menu_clip.png" alt="url복사"></a></li>
+				<li><a href="javascript:shareKakaotalk();"><img src="../assets/images/main-m/menu_kakao.png" alt="카카오톡 공유"></a></li>
+				<li><a href="javascript:shareSns('facebook');"><img src="../assets/images/main-m/menu_facebook.png" alt="페이스북 공유"></a></li>
+			</ul>
+		</div>
+		<span class="menu_bg"></span>
+		
+		<!-- 컨텐츠 -->
+		<div class="main">
+			
+			<div class="section" id="section01">
+				<p class="tit">
+					<span>
+						<span>
+							<img src="../assets/images/main-m/sec01_tit.png" alt="">
+							<span class="anico"><img src="../assets/images/main-m/mainani01.png" alt="" class="mainani"><span class="bom"></span></span>
+						</span>
+					</span>
+				</p>
+				<img src="../assets/images/main-m/sec01_bg_point.png" alt="" class="point_bg">
+				
+				<div class="ballon">
+					<span class="icon"><img src="../assets/images/main-m/bullon_icon.png" alt=""></span>
+					<p><img src="../assets/images/main-m/bullon_txt.png" alt=""></p>
+				</div>
+			</div>
+			
+			<div class="section" id="section02">
+				<p class="txt"><img src="../assets/images/main-m/sec02_txt.png" alt=""></p>
+				<p class="teng9"><img src="../assets/images/main-m/teng9.gif" alt=""></p>
+				
+				<div class="btn"><a href="javascript:sampleStart();" onClick="gtag('event', 'step1', {'event_category' : 'sampling_event', 'event_label' : '클린잇제로_샘플링'});"><img src="../assets/images/main-m/teng9_btn.png" alt=""></a></div>
+			</div>
+			
+			<div class="section" id="section03">
+				<div class="pro_slide">
+					<div>
+						<div class="pro01">
+							<a href="http://m.banilaco.com/m/event/eventShopChanceView.do?c_evt_seq=1143" target="_blank"><img src="../assets/images/main-m/sec03_slide01.png" alt="" class="visual"></a>
+							<a href="http://m.banilaco.com/m/event/eventShopChanceView.do?c_evt_seq=1143" target="_blank" class="view"><img src="../assets/images/main-m/view01.png" alt=""></a>
+						</div>
+					</div>
+					<div>
+						<div class="pro02">
+							<a href="http://m.banilaco.com/m/event/eventShopChanceView.do?c_evt_seq=1143" target="_blank"><img src="../assets/images/main-m/sec03_slide02.png" alt="" class="visual"></a>
+							<a href="http://m.banilaco.com/m/event/eventShopChanceView.do?c_evt_seq=1143" target="_blank" class="view"><img src="../assets/images/main-m/view02.png" alt=""></a>	
+						</div>
+					</div>
+					<div>
+						<div class="pro03">
+							<a href="http://m.banilaco.com/m/event/eventShopChanceView.do?c_evt_seq=1143" target="_blank"><img src="../assets/images/main-m/sec03_slide03.png" alt="" class="visual"></a>
+							<a href="http://m.banilaco.com/m/event/eventShopChanceView.do?c_evt_seq=1143" target="_blank" class="view"><img src="../assets/images/main-m/view03.png" alt=""></a>	
+						</div>
+					</div>
+					<div>
+						<div class="pro04">
+							<a href="http://m.banilaco.com/m/event/eventShopChanceView.do?c_evt_seq=1143" target="_blank"><img src="../assets/images/main-m/sec03_slide04.png" alt="" class="visual"></a>
+							<a href="http://m.banilaco.com/m/event/eventShopChanceView.do?c_evt_seq=1143" target="_blank" class="view"><img src="../assets/images/main-m/view04.png" alt=""></a>	
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="section" id="section04">
+				<p class="tit"><img src="../assets/images/main-m/sec04_tit.png" alt=""></p>
+				
+				<div class="video_event">
+					<!-- 영상숨김 -->
+					<!-- img src="../assets/images/main-m/sec04_video.png" alt="" class="video_img" -->
+					<img src="../assets/images/main-m/sec04_video.png" alt="" class="video_img" onClick="javascript:playYoutube1();">
+					<div id="videoOne"></div>
+				</div>
+				<div class="video_btn">
+					<!-- a><img src="../assets/images/main-m/video_btn_txt.png" alt=""></a-->
+					<a onClick="prompt('아래 주소창의 주소를 복사해주세요.', 'https://youtu.be/GbnPUiO3f34'); return false;"><img src="../assets/images/main-m/video_btn_txt.png" alt=""></a>
+				</div>
+				
+				<div class="product_img">
+					<img src="../assets/images/main-m/product_img.jpg" alt="">
+					<img src="../assets/images/main/teng9_2.gif" alt="" class="teng9_2">	
+				</div>
+				
+				<p class="comment"><img src="../assets/images/main-m/comment_txt01.png" alt=""></p>
+				<p class="comment"><img src="../assets/images/main-m/comment_txt02.png" alt=""></p>
+				
+				<style>
+					
+				</style>
+				<div class="reply_box">
+					<!-- 라이브리 시티 설치 코드 -->
+					<div id="livereContainer">
+					
+					</div>
+					<!-- 시티 설치 코드 끝 -->
+				</div>
+				
+				<!-- footer -->
+				<div class="footer"><img src="../assets/images/main-m/footer.png" alt=""></div>
+				<!-- //footer -->
+				
+				<div class="addressArea">
+					<address>
+						<!-- (주)에프앤코<br/> -->
+						서울시 강남구 언주로 541 F&amp;F 빌딩 10층 바닐라코<br>
+						사업자 등록번호 214-86-49402 I  통신판매신고번호 강남 03253 <!-- <strong id="licenseeNum">사업자정보 확인</strong> --><br>
+						대표 : 김창수  I  고객센터 : 080-225-6500<br>
+						<strong class="copyTxt">COPYRIGHT © ALL RIGHTS RESERVED.</strong>
+					</address>
+				</div>
+					
+			</div>
+			
+		</div>
+		<!-- //컨텐츠 -->
+		
+		<!-- 샘플 이벤트 -->
+		<!-- video -->
+		<div class="fixed-container">
+			<div class="fixed-video">
+				<video id="start" class="full-video" src="../assets/video/m/start.mp4" playsinline="" webkit-playsinline=""></video>
+				<video id="report" class="full-video" src="" playsinline="" webkit-playsinline=""></video>
+				<video id="report02" class="full-video" src="" playsinline="" webkit-playsinline=""></video>
+				<video id="end" class="full-video" src="" playsinline="" webkit-playsinline=""></video>
+				<img src="../assets/images/main-m/start.jpg" alt="" class="background">
+			</div>
+		</div>
+		<!-- //video -->
+		
+		<div class="fixed_close">
+			<a href="javascript:muted();" class="muted_btn">음소거</a>
+			<a href="javascript:sampleEnd();"><img src="../assets/images/main-m/menu_close.png" alt="닫기"></a>
+		</div>
+		
+		
+		<!-- user-scenes -->
+		<div class="user-scenes" id="storeTesterForm">
+		
+			<!-- start -->
+			<div class="user-scene start">
+				<a href="javascript:checking();" onClick="gtag('event', 'step2', {'event_category' : 'sampling_event', 'event_label' : '클린잇제로_샘플링'});"><img src="../assets/images/main-m/sample_start_btn.png" alt=""></a>
+			</div>
+			<!-- /start -->
+			
+			<!-- confirm -->
+			<div class="user-scene checking">
+				<div class="box">
+					<p class="line">
+						<input type="checkbox" id="sampReqApr1" name="sampReqApr1" class="custom_check">
+						<label for="sampReqApr1"><img src="../assets/images/main-m/checking_txt.png" alt="개인정보 수집 및 취급 위탁 동의"></label>
+						<a href="javascript:check_open();" class="pr_btn"><img src="../assets/images/main-m/checking_privacy.png" alt="전문보기"></a>
+					</p>
+					<p class="btn"><a href="javascript:report();" onClick="gtag('event', 'step3', {'event_category' : 'sampling_event', 'event_label' : '클린잇제로_샘플링'});"><img src="../assets/images/main-m/checking_btn.png" alt="신청 정보 입력하기"></a>
+				</div>
+			</div>
+			<!-- //confirm -->
+			
+			<!-- report -->
+			<div class="user-scene report">
+				<div>
+					<p><img src="../assets/images/main-m/report_tit01.png" alt="이름"><input type="text" id="testerName"></p>
+					<p><img src="../assets/images/main-m/report_tit02.png" alt="전화번호">
+						<select id="cellPhone1">
+							<option value="010">010</option>
+							<option value="011">011</option>
+							<option value="016">016</option>
+							<option value="017">017</option>
+							<option value="019">019</option>
+						</select>
+						<input type="tel" id="cellPhone2" maxlength="4"> <input type="tel" id="cellPhone3" maxlength="4">
+					</p>
+					<p>
+						<img src="../assets/images/main-m/report_tit03.png" alt="매장찾기">
+						<select id="locationId">
+							<option value="">지역 선택</option>
+							<option value="1">서울 매장</option>
+							<option value="2">경기 매장</option>
+							<option value="3">인천 매장</option>
+							<option value="6">대전 매장</option>
+							<!-- <option value="7">충북 매장</option> -->
+							<option value="8">부산 매장</option>
+							<option value="9">울산 매장</option>
+							<option value="10">대구 매장</option>
+							<option value="11">경북매장</option>
+							<option value="12">경남 매장</option>
+							<option value="13">전남 매장</option>
+							<option value="14">광주 매장</option>
+							<option value="15">전북 매장</option>
+							<option value="16">제주 매장</option>
+						</select>
+						
+						<select id="storeIdList">
+							<option value="">매장 선택</option>
+						</select>
+					</p>
+					<p class="from">
+						<a role="button" class="button button-transpink hover-fill hover-pink" id="checkMyStore">
+                            <span class="button-text">자세한 위치 보기</span>
+                        </a>
+                    </p>
+					<p class="btn"><a href="javascript:void(0);" onclick="$.view.storeValid(); gtag('event', 'step4', {'event_category' : 'sampling_event', 'event_label' : '클린잇제로_샘플링'});"><img src="../assets/images/main-m/report_btn.png" alt="신청 정보 입력하기"></a></p>
+				</div>
+			</div>
+			
+			<div class="user-scene output">
+				<div>
+					<p id="viewName">홍길동</p>
+					<p id="viewPhone">010-1234-1234</p>
+					<p id="viewStore">영등포 바닐라코 매장</p>
+					<p class="btn">
+						<a href="javascript:modify();"><img src="../assets/images/main-m/modify_l_btn.png" alt="수정"></a>
+						<a href="javascript:void(0);" onclick="$.view.storeSubmit(); gtag('event', 'step6', {'event_category' : 'sampling_event', 'event_label' : '클린잇제로_샘플링'});"><img src="../assets/images/main-m/modify_r_btn.png" alt="확인"></a>
+					</p>
+				</div>
+			</div>
+			
+			<div class="user-scene modify">
+				<div>
+					<p><img src="../assets/images/main-m/report_tit01.png" alt="이름">  <input type="text" id="modifyName"></p>
+					<p><img src="../assets/images/main-m/report_tit02.png" alt="전화번호">
+						<select id="modifyCellPhone1">
+							<option value="010">010</option>
+							<option value="011">011</option>
+							<option value="016">016</option>
+							<option value="017">017</option>
+							<option value="019">019</option>
+						</select>
+						<input type="text" id="modifyCellPhone2" maxlength="4"> <input type="text" id="modifyCellPhone3" maxlength="4">
+					</p>
+					<p>
+						<img src="../assets/images/main-m/report_tit03.png" alt="매장찾기">
+						<select id="modifyLocationId">
+							<option value="1">서울 매장</option>
+							<option value="2">경기 매장</option>
+							<option value="3">인천 매장</option>
+							<option value="6">대전 매장</option>
+							<!-- <option value="7">충북 매장</option> -->
+							<option value="8">부산 매장</option>
+							<option value="9">울산 매장</option>
+							<option value="10">대구 매장</option>
+							<option value="11">경북매장</option>
+							<option value="12">경남 매장</option>
+							<option value="13">전남 매장</option>
+							<option value="14">광주 매장</option>
+							<option value="15">전북 매장</option>
+							<option value="16">제주 매장</option>
+						</select>
+						
+						<select id="modifyStoreIdList">
+							<option value="">매장 선택</option>
+						</select>
+					</p>
+					<p class="from">
+						<a role="button" class="button button-transpink hover-fill hover-pink" id="checkMyStore">
+                            <span class="button-text">자세한 위치 보기</span>
+                        </a>
+                    </p>
+					<p class="btn"><a href="javascript:void(0);" onclick="$.view.modifyStoreValid();"><img src="../assets/images/main-m/modify_btn.png" alt="확인"></a></p>
+				</div>
+			</div>
+			<!-- //report -->
+			
+			<!-- end -->
+			<div class="user-scene end">
+				<div>
+					<p><a href="javascript:sampleEnd();"><img src="../assets/images/main-m/end_btn.png" alt="안녕"></a></p>
+				</div>
+			</div>
+			<!-- //end -->
+
+			<!-- checking pop -->
+			<div class="check_pop">
+				<p class="check_close"><a href="javascript:check_close();"><img src="../assets/images/main-m/check_close.png" alt="닫기"></a></p>
+				<dl>
+					<dt><img src="../assets/images/main-m/check_tit01.png" alt="개인정보 수집 동의"></dt>
+					<dd>
+						  <p>개인정보를 제공 받는 자 : 에프엔코</p>
+						  <p>개인정보를 제공 받는 자의 개인정보 이용 목적 : 이벤트 참여 확인 및 경품 제공</p>
+						  <p>제공하는 개인정보의 항목 : 이름, 핸드폰번호</p>
+						  <p>개인정보를 제공 받는 자의 개인정보 보유 및 이용 기간 : 이용자의 개인정보는 3개월 동안 보유 및 이용하며, 개인정보의 수집 및 이용목적이 달성되면 지체 없이 파기됨.</p>
+						  <p>동의하지 않을 권리 및 미동의 시 불이익 : 개인정보 수집 및 이용에 대한 동의를 거부할 권리가 있으며, 미동의 시 이벤트 당첨이 취소 될 수 있습니다.</p>
+					</dd>
+					<dt><img src="../assets/images/main-m/check_tit02.png" alt="개인정보 취급 위탁 동의"></dt>
+					<dd>
+						<p>개인정보 취급 위탁을 받는 자 : ㈜아이뱅크</p>
+						<p>개인정보를 제공 받는 자의 개인정보 이용 목적 : 이벤트 대행을 통한 개인정보 취급 및 이벤트 당첨된 자에게 경품 안내 목적이며 수집된 개인정보는 위탁 종료 시 지체 없이 파기함</p>
+					</dd>
+				</dl>
+				<p class="btn"><a href="javascript:check_close();"><img src="../assets/images/main-m/check_btn.png" alt="확인"></a></p>
+			</div>
+			<!-- //checking pop -->
+			
+			
+			
+		</div>
+		<!-- //user-scenes -->
+		<!-- //샘플 이벤트 -->
+		
+	</div>
+	<!-- //wrap -->
+	
+	<!-- warning-message -->
+	<div id="warning-message">
+		<img src="../assets/images/main-m/warning-message.png" alt="본 이벤트는 세로 화면에 최적화 되어있습니다.">
+	</div>
+	<!-- //warning-message -->
+	
+	
+	<script type="text/javascript" src="../scripts/view/m.store.js"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116042596-1"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=AW-812351898"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	
+	  gtag('config', 'UA-116042596-1');
+	  gtag('config', 'AW-812351898');
+	</script>	
+
+</body>
+</html>

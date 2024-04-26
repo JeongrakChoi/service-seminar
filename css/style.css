@@ -21,6 +21,8 @@
 .intro_title .bar{animation: blink 1s infinite; position:relative; top:-7px}
 .intro_name{position:absolute; right:50px; bottom:50px; font-size:20px; color:#fff}
 
+.blind_link{position:absolute; right:10px; top:10px; width:20px; height:20px; font-size:0;}
+
 
 /* page tit */
 .page_tit{font-size:0; position:relative; z-index:5;}
