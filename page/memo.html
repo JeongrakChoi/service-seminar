@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memo</title>
+  
+  <style>
+    *{margin:0; padding:0;}
+    .wrap{position:relative; width:1000px; height:500px; background:#dedede}
+    .memo{display:inline-block; background:#dcdcdc; font-size:0; position:absolute; box-shadow:3px 3px 3px #999}
+    .memo .memo_header{height:50px; background:#fff; cursor:move;}
+    .memo textarea{font-size:14px; background:#f1f1f1; overflow:auto; min-width:300px; min-height:200px; border:0}
+  </style>
+</head>
+<body>
+  
+  <div class="wrap">
+
+    <div class="memo">
+      <div class="memo_header"></div>
+      <textarea></textarea>
+    </div>
+
+    <div class="memo">
+      <div class="memo_header"></div>
+      <textarea style="background:#aaaaaa"></textarea>
+    </div>
+
+  </div>
+
+  <script>
+    const wrap = document.querySelector('.wrap');
+    const memos = document.querySelectorAll('.memo');
+    const memoHeaders = document.querySelectorAll('.memo_header');
+    
+
+    let isDragging = false;
+    let activeMemo = null;
+    let prevX;
+    let prevY;
+
+    memoHeaders.forEach((memoHeader, index) => {
+      memoHeader.addEventListener('mousedown', function(event) {
+        isDragging = true;
+        activeMemo = memos[index];
+        prevX = event.clientX;
+        prevY = event.clientY;
+      });
+    });
+
+    memos.forEach((memo, index) => {
+      memo.addEventListener('mousedown', function(event) {
+        activeMemo = memos[index];
+
+        memos.forEach(memo => {
+          if (memo !== activeMemo) {
+            memo.style.zIndex = '0';
+          }
+        });
+        activeMemo.style.zIndex = '1';
+      });
+    });
+
+    document.addEventListener('mousemove', function(event) {
+      if (isDragging && activeMemo) {
+        const deltaX = event.clientX - prevX;
+        const deltaY = event.clientY - prevY;
+
+        const rect = wrap.getBoundingClientRect();
+        const memoRect = activeMemo.getBoundingClientRect();
+
+        let newLeft = memoRect.left + deltaX;
+        let newTop = memoRect.top + deltaY;
+
+        // Ensure memo does not go beyond wrap boundaries
+        if (newLeft < rect.left) {
+          newLeft = rect.left;
+        } else if (newLeft + memoRect.width > rect.right) {
+          newLeft = rect.right - memoRect.width;
+        }
+
+        if (newTop < rect.top) {
+          newTop = rect.top;
+        } else if (newTop + memoRect.height > rect.bottom) {
+          newTop = rect.bottom - memoRect.height;
+        }
+
+        activeMemo.style.left = newLeft + 'px';
+        activeMemo.style.top = newTop + 'px';
+
+        prevX = event.clientX;
+        prevY = event.clientY;
+      }
+    });
+
+    document.addEventListener('mouseup', function() {
+      isDragging = false;
+      activeMemo = null;
+    });
+    // JavaScript 코드 끝
+  </script>
+
+</body>
+</html>
